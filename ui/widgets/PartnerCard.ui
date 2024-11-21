@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PartnerCard</class>
+ <widget class="QWidget" name="PartnerCard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>180</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QFrame" name="PartnerCardVBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>180</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: white;  color: black; font-size: 15px; padding: 0px</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="horizontalFrame">
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid black;</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QFrame" name="FirstColumn">
+         <property name="styleSheet">
+          <string notr="true">border: none; padding: 0;</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="PartnerTypeAndName">
+            <property name="styleSheet">
+             <string notr="true">padding: 0</string>
+            </property>
+            <property name="text">
+             <string>PartnerTypeAndName</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="BossName">
+            <property name="styleSheet">
+             <string notr="true">padding: 0</string>
+            </property>
+            <property name="text">
+             <string>BossName</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="PhoneNumber">
+            <property name="styleSheet">
+             <string notr="true">padding: 0</string>
+            </property>
+            <property name="text">
+             <string>PhoneNumber</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="Rank">
+            <property name="styleSheet">
+             <string notr="true">padding: 0</string>
+            </property>
+            <property name="text">
+             <string>Rank</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="DiscountPercentage">
+         <property name="styleSheet">
+          <string notr="true">border: none;
+padding: 0</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DiscountPercentage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="EditButton">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>160</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #67BA80;   border-radius: 10px</string>
+      </property>
+      <property name="text">
+       <string>Изменить
+партнёра</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="GetOrdersListButton">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>160</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>180</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #67BA80;   border-radius: 10px</string>
+      </property>
+      <property name="text">
+       <string>PushButton1</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

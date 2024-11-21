@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OrderCard</class>
+ <widget class="QWidget" name="OrderCard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>130</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #fff; color: #000; font-size: 18px; border: 2px solid black</string>
+  </property>
+  <widget class="QFrame" name="VLayout">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>130</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="product_name">
+      <property name="styleSheet">
+       <string notr="true">border: none</string>
+      </property>
+      <property name="text">
+       <string>product_name</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="quantity_of_products">
+      <property name="styleSheet">
+       <string notr="true">border: none</string>
+      </property>
+      <property name="text">
+       <string>quantity_of_products</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="date_of_create">
+      <property name="styleSheet">
+       <string notr="true">border: none</string>
+      </property>
+      <property name="text">
+       <string>date_of_create</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
