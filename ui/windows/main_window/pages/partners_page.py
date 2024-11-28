@@ -43,5 +43,5 @@ class PartnerPageWidget(QWidget, Ui_ScrollPage):
             self.verticalLayout_4.addWidget(custom_widget)
 
         self.Button.setText("Добавление нового партнёра")
-        self.Button.clicked.connect(lambda _: ModalWindow("create/update_partner",
+        self.Button.clicked.connect(lambda: ModalWindow("create/update_partner",
                                                           partner_model, "create").exec_())
