@@ -11,9 +11,6 @@ class CreateUpdatePage(QLabel, Ui_CreateUpdatePage):
 
         self.partner_model = partner_model
 
-        self.CreateUpdateButton.setText("Добавить партнёра" if create_or_update == "create" else "Обновить партнёра")
-        self.CreateUpdateButton.clicked.connect(self.close)
-
         if create_or_update == "update":
             self.TypeInput.setText(str(partner_model.type))
             self.NameInput.setText(str(partner_model.company_name))
@@ -46,12 +43,13 @@ class CreateUpdatePage(QLabel, Ui_CreateUpdatePage):
             self.INNInput.text() == "" or self.BossNameInput.text() == "" or self.PhoneNumberInput.text() == "" or
             self.MailInput.text() == "" or self.RankInput.text() == "" ):
             
-            msg_box = QMessageBox
+            msg_box = QMessageBox(self)
             msg_box.setWindowTitle("Ошибка")
             msg_box.setText("При выполении операции произошла ошибка")
             msg_box.setInformativeText("Для выполнения операции требуется, чтобы все поля были заполенны")
-            msg_box.setStandardButtons(QMessageBox.Ok)
-            msg_box.exec_()
+            msg_box.show()
+
+            return
 
         PartnerCRUD.update_partner(
             partner_id=self.partner_model.id,
