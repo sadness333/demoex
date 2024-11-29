@@ -18,7 +18,7 @@ class PartnerCRUD:
     def read_partners():
         """Возвращает список всех партнеров."""
         try:
-            return session.query(PartnerModel).all()
+            return session.query(PartnerModel).order_by(PartnerModel.id).all()
         except SQLAlchemyError as e:
             print(f"Ошибка чтения партнеров: {e}")
             return []
