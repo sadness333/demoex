@@ -1,3 +1,5 @@
+from sqlalchemy import desc
+
 from config import session
 from sqlalchemy.exc import SQLAlchemyError
 from database.models.PartnerModel import PartnerModel
@@ -37,12 +39,3 @@ class PartnerCRUD:
                 print(f"Партнер с ID {partner_id} не найден.")
         except SQLAlchemyError as e:
             print(f"Ошибка обновления партнера: {e}")
-
-    @staticmethod
-    def get_company_name(partner_id: int):
-        """Получает имя компании"""
-        try:
-            return session.query(PartnerModel.company_name).filter(PartnerModel.id == partner_id).scalar()
-        except SQLAlchemyError as e:
-            print(f"Ошибка получения имени компании: {e}")
-            return None

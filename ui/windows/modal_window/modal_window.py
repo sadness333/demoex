@@ -3,8 +3,8 @@ from PySide6.QtWidgets import QDialog, QVBoxLayout
 from ui.windows.modal_window.pages.create_and_update_page import CreateUpdatePage
 
 class ModalWindow(QDialog):
-    def __init__(self, page_choose, partner_model, create_or_update=None):
-        super().__init__()
+    def __init__(self, parent, page_choose, create_or_update=None, partner_model=None):
+        super().__init__(parent)
 
         self.setModal(True)
         self.setGeometry(450, 450, 640, 360)
@@ -13,10 +13,7 @@ class ModalWindow(QDialog):
         if page_choose == "create/update_partner":
             self.setWindowTitle("Окно добавления/обновления партнёра")
 
-            page1 = CreateUpdatePage(create_or_update, partner_model)
-
-            page1.CreateUpdateButton.setText("Добавить партнёра" if create_or_update == "create" else "Обновить партнёра")
-            page1.CreateUpdateButton.clicked.connect(lambda: self.accept())
+            page1 = CreateUpdatePage(self, parent, partner_model, create_or_update)
 
             self.layout = QVBoxLayout()
             self.layout.addWidget(page1)
@@ -27,3 +24,6 @@ class ModalWindow(QDialog):
             self.layout = QVBoxLayout()
             self.layout.addWidget()
             self.setLayout(self.layout)
+
+    def close_modal_window(self):
+        self.accept()
