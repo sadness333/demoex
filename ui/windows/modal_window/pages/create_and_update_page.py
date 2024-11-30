@@ -6,7 +6,7 @@ from database.CRUDs.PartnerCRUDs import PartnerCRUD
 
 
 class CreateUpdatePage(QLabel, Ui_CreateUpdatePage):
-    def __init__(self, parent, main_window, partner_model, create_or_update):
+    def __init__(self, parent, main_window, create_or_update, partner_model):
         super().__init__(parent)
         self.setupUi(self)
 
