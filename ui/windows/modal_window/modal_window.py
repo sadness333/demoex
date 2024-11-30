@@ -1,6 +1,8 @@
 from PySide6.QtWidgets import QDialog, QVBoxLayout
 
 from ui.windows.modal_window.pages.create_and_update_page import CreateUpdatePage
+from ui.windows.modal_window.pages.orders_page import OrderPageWidget
+
 
 class ModalWindow(QDialog):
     def __init__(self, parent, page_choose, create_or_update=None, partner_model=None):
@@ -21,8 +23,10 @@ class ModalWindow(QDialog):
         else:
             self.setWindowTitle("Окно просмотра заказов партнёра")
 
+            page2 = OrderPageWidget(partner_model.id)
+
             self.layout = QVBoxLayout()
-            self.layout.addWidget()
+            self.layout.addWidget(page2)
             self.setLayout(self.layout)
 
     def close_modal_window(self):
