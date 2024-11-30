@@ -13,7 +13,7 @@ class ModalWindow(QDialog):
         if page_choose == "create/update_partner":
             self.setWindowTitle("Окно добавления/обновления партнёра")
 
-            page1 = CreateUpdatePage(self, parent, partner_model, create_or_update)
+            page1 = CreateUpdatePage(self, parent, create_or_update, partner_model)
 
             self.layout = QVBoxLayout()
             self.layout.addWidget(page1)
