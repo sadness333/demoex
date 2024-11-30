@@ -58,4 +58,4 @@ class PartnerCardWidget(QWidget, Ui_PartnerCard):
         self.GetOrdersListButton.setText("Просмотреть заказы \n" + partner_model.company_name)
         self.EditButton.clicked.connect(lambda: ModalWindow(parent, "create/update_partner",
                                                             "update", partner_model).exec())
-        self.GetOrdersListButton.clicked.connect(lambda: ModalWindow(parent, "get_orders_list", partner_model).exec())
+        self.GetOrdersListButton.clicked.connect(lambda: ModalWindow(parent, "get_orders_list", partner_model=partner_model).exec())
