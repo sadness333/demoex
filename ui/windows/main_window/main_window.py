@@ -1,3 +1,4 @@
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow
 
 from ui.windows.main_window.pages.partners_page import PartnerPageWidget
@@ -15,5 +16,6 @@ class MainWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication([])
     window = MainWindow()
+    window.setWindowIcon(QIcon("ui/icons/Master_pol.ico"))
     window.show()
     app.exec()
