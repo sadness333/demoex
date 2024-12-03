@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ScrollPage</class>
- <widget class="QWidget" name="ScrollPage">
+ <class>OrdersPage</class>
+ <widget class="QWidget" name="OrdersPage">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -50,7 +50,7 @@
            <x>0</x>
            <y>0</y>
            <width>581</width>
-           <height>350</height>
+           <height>376</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -59,17 +59,6 @@
           </item>
          </layout>
         </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Button">
-        <property name="styleSheet">
-         <string notr="true">background-color: #67BA80;  color: bkack; font-size: 15px; border: 0px
-</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
        </widget>
       </item>
      </layout>
