@@ -2,7 +2,7 @@ from PySide6.QtCore import QCoreApplication
 from PySide6.QtWidgets import QWidget
 
 from ui.widgets.OrderCard import Ui_OrderCard
-from ui.widgets.ScrollPage import Ui_ScrollPage
+from ui.widgets.OrdersPage import Ui_OrdersPage
 
 from database.CRUDs.OrderCRUDs import OrderCRUD
 from database.CRUDs.ProductCRUDs import ProductCRUD
@@ -19,7 +19,7 @@ class OrderCardWidget(QWidget, Ui_OrderCard):
         self.date_of_create.setText("Дата создания заказа: " + date_of_create)
 
 
-class OrderPageWidget(QWidget, Ui_ScrollPage):
+class OrderPageWidget(QWidget, Ui_OrdersPage):
     def __init__(self, partner_id):
         super().__init__()
         self.setupUi(self)

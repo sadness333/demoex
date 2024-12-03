@@ -1,14 +1,15 @@
 from PySide6.QtCore import QCoreApplication
-from PySide6.QtWidgets import QWidget
+from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QWidget, QLabel
 
 from ui.widgets.PartnerCard import Ui_PartnerCard
-from ui.widgets.ScrollPage import Ui_ScrollPage
+from ui.widgets.PartnersPage import Ui_PartnersPage
 
 from ui.windows.modal_window.modal_window import ModalWindow
 
 from database.CRUDs.PartnerCRUDs import PartnerCRUD
 
-class PartnerPageWidget(QWidget, Ui_ScrollPage):
+class PartnerPageWidget(QWidget, Ui_PartnersPage):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
