@@ -1,5 +1,3 @@
-from sqlalchemy import desc
-
 from config import session
 from sqlalchemy.exc import SQLAlchemyError
 from database.models.PartnerModel import PartnerModel
