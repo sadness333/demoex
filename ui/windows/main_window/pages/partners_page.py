@@ -1,6 +1,4 @@
-from PySide6.QtCore import QCoreApplication
-from PySide6.QtGui import QPixmap
-from PySide6.QtWidgets import QWidget, QLabel
+from PySide6.QtWidgets import QWidget
 
 from ui.widgets.PartnerCard import Ui_PartnerCard
 from ui.widgets.PartnersPage import Ui_PartnersPage
@@ -14,11 +12,7 @@ class PartnerPageWidget(QWidget, Ui_PartnersPage):
         super().__init__()
         self.setupUi(self)
 
-        self.Title.setText(QCoreApplication.translate(
-            "test",
-            u"<html><head/><body><p align=\"center\">Партнёры</p></body></html>",
-            None
-        ))
+        self.Title.setText("Партнёры")
 
         self.fill_scroll_area()
 
