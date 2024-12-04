@@ -2,13 +2,13 @@ from sqlalchemy import Column, Integer, String, Float
 from database.config import Base
 
 
-# Определение модели
+# Модель для таблицы "ProductType".
 class ProductTypeModel(Base):
     __tablename__ = 'product_type'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    type = Column(String(50), nullable=False)
-    coefficient_of_product_type = Column(Float, nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)  # Уникальный идентификатор типа продукта
+    type = Column(String(50), nullable=False)  # Название типа продукта
+    coefficient_of_product_type = Column(Float, nullable=False)  # Коэффициент, связанный с типом продукта
 
     def __repr__(self):
         return (
