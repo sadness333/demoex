@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float
-from config import Base, engine
+from database.config import Base
+
 
 # Определение модели
 class ProductTypeModel(Base):

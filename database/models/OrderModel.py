@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, Date, func, ForeignKey
-from config import Base, engine
+from sqlalchemy import Column, Integer, Date, func, ForeignKey
+from database.config import Base
+
 
 # Модель
 class OrderModel(Base):

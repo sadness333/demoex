@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float
-from config import Base, engine
+from database.config import Base, engine
 
 # Модель
 class MaterialModel(Base):

@@ -1,4 +1,4 @@
-from config import session
+from database.config import session
 
 from database.models.MaterialModel import MaterialModel
 from database.models.ProductTypeModel import ProductTypeModel

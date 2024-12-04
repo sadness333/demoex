@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
-from config import Base, engine
+from database.config import Base
 
 
 # Определение модели
