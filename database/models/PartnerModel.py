@@ -7,7 +7,7 @@ class PartnerModel(Base):
     __tablename__ = 'partners'
 
     id = Column(Integer, primary_key=True, autoincrement=True)  # Уникальный идентификатор партнера
-    type = Column(String(10), nullable=False)  # Тип партнера (например, поставщик, клиент)
+    type = Column(String(10), nullable=False)  # Тип партнера
     company_name = Column(String(100), nullable=False)  # Название компании
     address = Column(String(100), nullable=False)  # Адрес компании
     inn = Column(String, nullable=False)  # ИНН компании
