@@ -16,7 +16,7 @@ class OrderCRUD:
         """
         try:
             # Получаем заказы, связанные с указанной компанией
-            return session.query(OrderModel).filter(OrderModel.fk_company_name == company_id).all()
+            return session.query(OrderModel).filter(OrderModel.fk_company_id == company_id).all()
         except SQLAlchemyError as e:
             # Откатываем транзакцию и возвращаем пустой список
             session.rollback()

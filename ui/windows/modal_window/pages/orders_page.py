@@ -46,7 +46,7 @@ class OrderPageWidget(QWidget, Ui_OrdersPage):
         # Получаем заказы для указанного партнёра и добавляем их на страницу
         for order in OrderCRUD.read_orders_by_company_id(partner_id):
             custom_widget = OrderCardWidget(
-                str(ProductCRUD.get_product_name(order.fk_product_name)),  # Получаем название продукта
+                str(ProductCRUD.get_product_name(order.fk_product_id)),  # Получаем название продукта
                 str(order.quantity_of_products),  # Количество продукции
                 str(order.date_of_create)  # Дата создания заказа
             )
