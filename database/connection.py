@@ -16,7 +16,7 @@ Session = sessionmaker(bind=engine)
 # Создание экземпляра сессии
 session = Session()
 
-# Пример проверки соединения с базой данных
+# Проверка соединения с базой данных
 def test_connection():
     try:
         with engine.connect() as connection:
