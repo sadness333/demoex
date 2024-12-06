@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float
-from database.config import Base
+from database.connection import Base
 
 
 # Модель для таблицы "ProductType".

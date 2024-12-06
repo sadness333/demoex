@@ -1,4 +1,4 @@
-from database.config import session
+from database.connection import session
 
 from sqlalchemy.exc import SQLAlchemyError
 
