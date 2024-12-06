@@ -4,8 +4,10 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 # Импортируем страницу главного окна
 from ui.windows.main_window.pages.partners_page import PartnerPageWidget
 
-# Основное окно приложения
 class MainWindow(QMainWindow):
+    """
+    Класс основного окна приложения
+    """
     def __init__(self):
         super().__init__()
         # Устанавливаем заголовок окна
