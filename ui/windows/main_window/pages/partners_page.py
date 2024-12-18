@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget
 
-from ui.widgets.PartnerCard import Ui_PartnerCard
+from ui.widgets.PartnerCardWithButton import Ui_PartnerCardWithButton
 from ui.widgets.PartnersPage import Ui_PartnersPage
 
 from ui.windows.modal_window.modal_window import ModalWindow
@@ -45,7 +45,7 @@ class PartnerPageWidget(QWidget, Ui_PartnersPage):
             self.verticalLayout_4.addWidget(custom_widget)  # Добавление карточки в лейаут
 
 
-class PartnerCardWidget(QWidget, Ui_PartnerCard):
+class PartnerCardWidget(QWidget, Ui_PartnerCardWithButton):
     def __init__(self, parent, partner_model):
         super().__init__(parent)
         # Настройка пользовательского интерфейса карточки партнёра
@@ -65,8 +65,13 @@ class PartnerCardWidget(QWidget, Ui_PartnerCard):
 
         # Настройка кнопок для просмотра заказов и редактирования партнёра
         self.GetOrdersListButton.setText("Просмотреть заказы \n" + partner_model.company_name)
-        self.EditButton.clicked.connect(lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
         self.GetOrdersListButton.clicked.connect(lambda: ModalWindow(parent, "get_orders_list", partner_model=partner_model).exec())
+
+        self.PartnerTypeAndName.clicked.connect(lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
+        self.BossName.clicked.connect(lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
+        self.PhoneNumber.clicked.connect(lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
+        self.Rank.clicked.connect(lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
+        self.DiscountPercentage.clicked.connect(lambda: ModalWindow(parent, "create/update_partner", "update", partner_model).exec())
 
 
 def calculation_of_discount_percentage(partner_id: int) -> int:
