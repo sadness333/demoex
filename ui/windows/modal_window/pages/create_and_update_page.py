@@ -1,10 +1,9 @@
 from PySide6.QtWidgets import QLabel, QMessageBox
 
-# Импорт пользовательского интерфейса для страницы добавления/обновления партнёра
-from ui.widgets.CreateUpdatePage import Ui_CreateUpdatePage
-
 # Импорт CRUD операций для работы с сущностями партнёров
 from database.CRUDs.PartnerCRUDs import PartnerCRUD
+# Импорт пользовательского интерфейса для страницы добавления/обновления партнёра
+from ui.widgets.CreateUpdatePage import Ui_CreateUpdatePage
 
 
 class CreateUpdatePage(QLabel, Ui_CreateUpdatePage):

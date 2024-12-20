@@ -1,14 +1,13 @@
 from PySide6.QtCore import QCoreApplication
 from PySide6.QtWidgets import QWidget
 
+# Импорт CRUD операций для работы с заказами и продуктами
+from database.CRUDs.OrderCRUDs import OrderCRUD
+from database.CRUDs.ProductCRUDs import ProductCRUD
 # Импорт пользовательского интерфейса для карточки заказа
 from ui.widgets.OrderCard import Ui_OrderCard
 # Импорт пользовательского интерфейса для страницы заказов
 from ui.widgets.OrdersPage import Ui_OrdersPage
-
-# Импорт CRUD операций для работы с заказами и продуктами
-from database.CRUDs.OrderCRUDs import OrderCRUD
-from database.CRUDs.ProductCRUDs import ProductCRUD
 
 
 class OrderCardWidget(QWidget, Ui_OrderCard):

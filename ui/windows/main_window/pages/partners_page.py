@@ -1,12 +1,11 @@
 from PySide6.QtWidgets import QWidget
 
+from database.CRUDs.OrderCRUDs import OrderCRUD
+from database.CRUDs.PartnerCRUDs import PartnerCRUD
 from ui.widgets.PartnerCardWithButton import Ui_PartnerCardWithButton
 from ui.widgets.PartnersPage import Ui_PartnersPage
-
 from ui.windows.modal_window.modal_window import ModalWindow
 
-from database.CRUDs.PartnerCRUDs import PartnerCRUD
-from database.CRUDs.OrderCRUDs import OrderCRUD
 
 class PartnerPageWidget(QWidget, Ui_PartnersPage):
     def __init__(self):
@@ -42,7 +41,7 @@ class PartnerPageWidget(QWidget, Ui_PartnersPage):
         # Добавление виджетов партнёров в область прокрутки
         for partner_model in PartnerCRUD.read_partners():
             custom_widget = PartnerCardWidget(self, partner_model)  # Создание карточки партнёра
-            self.verticalLayout_4.addWidget(custom_widget)  # Добавление карточки в лейаут
+            self.verticalLayout_3.addWidget(custom_widget)  # Добавление карточки в лейаут
 
 
 class PartnerCardWidget(QWidget, Ui_PartnerCardWithButton):
@@ -54,7 +53,7 @@ class PartnerCardWidget(QWidget, Ui_PartnerCardWithButton):
         self.setFixedHeight(180)
 
         # Установка текстов в соответствующие поля карточки
-        self.PartnerTypeAndName.setText(str(partner_model.type) + " | " + str(partner_model.company_name))
+        self.PartnerTypeAndName.setText(f'{str(partner_model.type)} "{str(partner_model.company_name)}"')
         self.BossName.setText(str(partner_model.boss_name))
         self.PhoneNumber.setText(str(partner_model.phone_number))
         self.Rank.setText("Рейтинг " + str(partner_model.rank))

@@ -12,8 +12,6 @@ class MainWindow(QMainWindow):
         super().__init__()
         # Устанавливаем заголовок окна
         self.setWindowTitle("Master_pol")
-        # Устанавливаем размер и положение окна
-        self.setGeometry(400, 400, 960, 540)
 
         # Создаём виджет для страницы партнёров
         self.partner_page_widget = PartnerPageWidget()
@@ -29,6 +27,6 @@ if __name__ == "__main__":
     # Устанавливаем иконку приложения
     window.setWindowIcon(QIcon("ui/icons/Master_pol.ico"))
     # Отображаем главное окно
-    window.show()
+    window.showMaximized()
     # Запускаем цикл обработки событий приложения
     app.exec()

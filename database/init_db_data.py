@@ -1,218 +1,92 @@
-from database.connection import session
+from openpyxl import load_workbook
 
-from database.models.MaterialModel import MaterialModel
-from database.models.ProductTypeModel import ProductTypeModel
+from database.connection import Base, engine, Session
+from database.models.OrderModel import OrderModel
 from database.models.PartnerModel import PartnerModel
 from database.models.ProductModel import ProductModel
-from database.models.OrderModel import OrderModel
+from database.models.ProductTypeModel import ProductTypeModel
 
+# Пути к файлам Excel
+BASE_DIR = "Excel/"
+product_type_file = BASE_DIR + "Product_type_import.xlsx"
+products_file = BASE_DIR + "Products_import.xlsx"
+partners_file = BASE_DIR + "Partners_import.xlsx"
+sales_history_file = BASE_DIR + "Partner_products_import.xlsx"
 
-# Инициализация материалов
-def initialize_materials():
-    if not session.query(MaterialModel).first():
-        initial_materials = [
-            MaterialModel(type="Тип материала 1", percentage_of_defective_material=0.10),
-            MaterialModel(type="Тип материала 2", percentage_of_defective_material=0.95),
-            MaterialModel(type="Тип материала 3", percentage_of_defective_material=0.28),
-            MaterialModel(type="Тип материала 4", percentage_of_defective_material=0.55),
-            MaterialModel(type="Тип материала 5", percentage_of_defective_material=0.34),
-        ]
-        session.add_all(initial_materials)
-        session.commit()
+#Удаляет существующие таблицы, использовать не обязательно
+Base.metadata.drop_all(engine)
+#Создаёт таблицы
+Base.metadata.create_all(engine)
+session = Session()
 
-# Инициализация заказов
-def initialize_orders():
-    if not session.query(OrderModel).first():
-        initial_orders = [
-            OrderModel(
-                fk_product_id=1,
-                fk_company_id=1,
-                quantity_of_products=15500,
-                date_of_create="2023-03-23"),
-            OrderModel(
-                fk_product_id=3,
-                fk_company_id=1,
-                quantity_of_products=12350,
-                date_of_create="2023-12-18"),
-            OrderModel(
-                fk_product_id=4,
-                fk_company_id=1,
-                quantity_of_products=37400,
-                date_of_create="2024-06-07"),
-            OrderModel(
-                fk_product_id=2,
-                fk_company_id=2,
-                quantity_of_products=35000,
-                date_of_create="2022-12-02"),
-            OrderModel(
-                fk_product_id=5,
-                fk_company_id=2,
-                quantity_of_products=1250,
-                date_of_create="2023-05-17"),
-            OrderModel(
-                fk_product_id=3,
-                fk_company_id=2,
-                quantity_of_products=1000,
-                date_of_create="2024-06-07"),
-            OrderModel(
-                fk_product_id=1,
-                fk_company_id=2,
-                quantity_of_products=7550,
-                date_of_create="2024-07-01"),
-            OrderModel(
-                fk_product_id=1,
-                fk_company_id=3,
-                quantity_of_products=7250,
-                date_of_create="2023-01-22"),
-            OrderModel(
-                fk_product_id=2,
-                fk_company_id=3,
-                quantity_of_products=2500,
-                date_of_create="2024-07-05"),
-            OrderModel(
-                fk_product_id=4,
-                fk_company_id=4,
-                quantity_of_products=59050,
-                date_of_create="2023-03-20"),
-            OrderModel(
-                fk_product_id=3,
-                fk_company_id=4,
-                quantity_of_products=37200,
-                date_of_create="2024-03-12"),
-            OrderModel(
-                fk_product_id=5,
-                fk_company_id=4,
-                quantity_of_products=4500,
-                date_of_create="2024-05-14"),
-            OrderModel(
-                fk_product_id=3,
-                fk_company_id=5,
-                quantity_of_products=50000,
-                date_of_create="2023-09-19"),
-            OrderModel(
-                fk_product_id=4,
-                fk_company_id=5,
-                quantity_of_products=670000,
-                date_of_create="2023-11-10"),
-            OrderModel(
-                fk_product_id=1,
-                fk_company_id=5,
-                quantity_of_products=350000,
-                date_of_create="2024-04-15"),
-            OrderModel(
-                fk_product_id=2,
-                fk_company_id=5,
-                quantity_of_products=25000,
-                date_of_create="2024-06-12"),
+try:
+    # Импорт типов продукции
+    wb = load_workbook(product_type_file)
+    sheet = wb.active
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        #эти переменные можно назвать как угодно, каждая соответствует своему столбцу в таблице Excel
+        #вместе они состовляют ряд (row) таблицы
+        production_type, coefficient = row
 
-        ]
-        session.add_all(initial_orders)
-        session.commit()
+        # Пропускаем строки с пустыми значениями, по какой-то причине нужна только для этой таблицы, без неё не работатет
+        if not production_type or not coefficient:
+            continue
 
-# Инициализация партнёров
-def initialize_partners():
-    if not session.query(PartnerModel).first():
-        initial_partners = [
-            PartnerModel(
-                type="ЗАО",
-                company_name="База Строитель",
-                address="652050, Кемеровская область, город Юрга, ул. Лесная, 15",
-                inn="2222455179",
-                boss_name="Иванова Александра Ивановна",
-                phone_number="493 123 45 67",
-                mail="aleksandraivanova@ml.ru",
-                rank=7,
-            ),
-            PartnerModel(
-                type="ООО",
-                company_name="Паркет 29",
-                address="164500, Архангельская область, город Северодвинск, ул. Строителей, 18",
-                inn="3333888520",
-                boss_name="Петров Василий Петрович",
-                phone_number="987 123 56 78",
-                mail="vppetrov@vl.ru",
-                rank=7,
-            ),
-            PartnerModel(
-                type="ПАО",
-                company_name="Стройсервис",
-                address="188910, Ленинградская область, город Приморск, ул. Парковая, 21",
-                inn="4440391035",
-                boss_name="Соловьев Андрей Николаевич",
-                phone_number="812 223 32 00",
-                mail="ansolovev@st.ru",
-                rank=7,
-            ),
-            PartnerModel(
-                type="ОАО",
-                company_name="Ремонт и отделка",
-                address="143960, Московская область, город Реутов, ул. Свободы, 51",
-                inn="1111520857",
-                boss_name="Воробьева Екатерина Валерьевна",
-                phone_number="444 222 33 11",
-                mail="ekaterina.vorobeva@ml.ru",
-                rank=5,
-            ),
-            PartnerModel(
-                type="ЗАО",
-                company_name="МонтажПро",
-                address="309500, Белгородская область, город Старый Оскол, ул. Рабочая, 122",
-                inn="5552431140",
-                boss_name="Степанов Степан Сергеевич",
-                phone_number="912 888 33 33",
-                mail="stepanov@stepan.ru",
-                rank=10,
-            ),
-        ]
-        session.add_all(initial_partners)
-        session.commit()
+        session.add(ProductTypeModel(production_type=production_type, coefficient=coefficient))
+    session.commit()
+    print("Типы продукции добавлены.")
 
-# Инициализация продуктов
-def initialize_products():
-    if not session.query(ProductModel).first():
-        initial_products = [
-            ProductModel(
-                article="8758385",
-                name="Паркетная доска Ясень темный однополосная 14 мм",
-                fk_type=3,
-                min_cost=4456.9,
-            ),
-            ProductModel(
-                article="8858958",
-                name="Инженерная доска Дуб Французская елка однополосная 12 мм",
-                fk_type=3,
-                min_cost=7330.99,
-            ),
-            ProductModel(
-                article="7750282",
-                name="Ламинат Дуб дымчато-белый 33 класс 12 мм",
-                fk_type=1,
-                min_cost=1799.33,
-            ),
-            ProductModel(
-                article="7028748",
-                name="Ламинат Дуб серый 32 класс 8 мм с фаской",
-                fk_type=1,
-                min_cost=3890.41,
-            ),
-            ProductModel(
-                article="5012543",
-                name="Пробковое напольное клеевое покрытие 32 класс 4 мм",
-                fk_type=4,
-                min_cost=5450.59,
-            ),
-        ]
-        session.add_all(initial_products)
-        session.commit()
+    # Импорт продуктов
+    wb = load_workbook(products_file)
+    sheet = wb.active
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        product_type_name, name, article_number, minimum_cost = row
+        product_type = session.query(ProductTypeModel).filter_by(production_type=product_type_name).first()
+        session.add(ProductModel(
+            product_type_id=product_type.id,
+            name=name,
+            article_number=article_number,
+            minimum_cost=minimum_cost))
+    session.commit()
+    print("Продукты добавлены.")
 
-# Инициализация типа продуктов
-def initialize_product_type():
-    if not session.query(ProductTypeModel).first():
-        initial_product_type = [
-            ProductTypeModel(type="Ламинат", coefficient_of_product_type=2.35),
-            ProductTypeModel(type="Массивная доска", coefficient_of_product_type=5.15),
-            ProductTypeModel(type="Паркетная доска", coefficient_of_product_type=4.34),
-            ProductTypeModel(type="Пробковое покрытие", coefficient_of_product_type=1.5),
-        ]
-        session.add_all(initial_product_type)
-        session.commit()
+    # Импорт партнёров
+    wb = load_workbook(partners_file)
+    sheet = wb.active
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        partner_type, name, director, email, phone, legal_address, inn, rating = row
+        session.add(PartnerModel(
+            partner_type=partner_type,
+            name=name,
+            director=director,
+            email=email,
+            phone=phone,
+            legal_address=legal_address,
+            inn=inn,
+            rating=rating
+        ))
+    session.commit()
+    print("Партнёры добавлены.")
+
+    # Импорт истории продаж
+    wb = load_workbook(sales_history_file)
+    sheet = wb.active
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        product_name, partner_name, quantity, sale_date = row
+        product = session.query(PartnerModel).filter_by(name=product_name).first()
+        partner = session.query(PartnerModel).filter_by(name=partner_name).first()
+        session.add(OrderModel(
+            partner_id=partner.id,
+            product_id=product.id,
+            quantity=quantity,
+            sale_date=sale_date
+            ))
+    session.commit()
+    print("История продаж добавлена.")
+
+except Exception as e:
+    session.rollback()
+    print(f"Ошибка при импорте данных: {e}")
+finally:
+    session.close()
+    print("Импорт данных завершён.")

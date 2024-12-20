@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, Date, func, ForeignKey
+
 from database.connection import Base
+
 
 # Модель для таблицы "Orders".
 class OrderModel(Base):
