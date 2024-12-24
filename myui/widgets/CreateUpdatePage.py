@@ -193,7 +193,7 @@ class Ui_CreateUpdatePage(object):
         self.CreateUpdateButton = QPushButton(self.frame)
         self.CreateUpdateButton.setObjectName(u"CreateUpdateButton")
         self.CreateUpdateButton.setStyleSheet(u"border: 1px solid black;\n"
-"background-color: green;\n"
+"background-color: #67BA80;\n"
 "")
 
         self.verticalLayout.addWidget(self.CreateUpdateButton)
@@ -201,7 +201,7 @@ class Ui_CreateUpdatePage(object):
         self.pushButton = QPushButton(self.frame)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setStyleSheet(u"border: 1px solid black;\n"
-"background-color: green;\n"
+"background-color: #67BA80;\n"
 "")
 
         self.verticalLayout.addWidget(self.pushButton)

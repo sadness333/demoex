@@ -42,7 +42,7 @@ class Ui_PartnersPage(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(self.title)
         self.label.setObjectName(u"label")
-        self.label.setMaximumSize(QSize(100, 100))
+        self.label.setMaximumSize(QSize(100, 80))
         self.label.setPixmap(QPixmap(u"myui/icons/Master_pol.png"))
         self.label.setScaledContents(True)
 
@@ -50,8 +50,7 @@ class Ui_PartnersPage(object):
 
         self.label_2 = QLabel(self.title)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setStyleSheet(u"color:black;\n"
-"font-size:20px;")
+        self.label_2.setStyleSheet(u"color:black;\n" "font-size:20px;")
 
         self.horizontalLayout.addWidget(self.label_2)
 
@@ -85,7 +84,7 @@ class Ui_PartnersPage(object):
         self.button = QFrame(self.ss)
         self.button.setObjectName(u"button")
         self.button.setStyleSheet(u"QPushButton{\n"
-"	background-color:green;\n"
+"	background-color:#67BA80;\n"
 "	color:black;\n"
 "}")
         self.verticalLayout_5 = QVBoxLayout(self.button)

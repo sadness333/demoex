@@ -94,7 +94,7 @@ class Ui_PartnerCardWithButton(object):
         sizePolicy.setHeightForWidth(self.GetOrdersListButton.sizePolicy().hasHeightForWidth())
         self.GetOrdersListButton.setSizePolicy(sizePolicy)
         self.GetOrdersListButton.setMaximumSize(QSize(200, 16777215))
-        self.GetOrdersListButton.setStyleSheet(u"background-color: green;   border-radius: 10px")
+        self.GetOrdersListButton.setStyleSheet(u"background-color: #67BA80;   border-radius: 10px")
 
         self.horizontalLayout_2.addWidget(self.GetOrdersListButton)
 
