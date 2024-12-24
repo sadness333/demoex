@@ -24,3 +24,5 @@ class MaterialCRUD:
             session.rollback()
             print(f"Ошибка чтения процента брака материала: {e}")
             return 0.0
+
+

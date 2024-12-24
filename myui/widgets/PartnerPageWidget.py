@@ -85,7 +85,7 @@ class Ui_PartnersPage(object):
         self.button = QFrame(self.ss)
         self.button.setObjectName(u"button")
         self.button.setStyleSheet(u"QPushButton{\n"
-"	background-color:green;\n"
+"	background-color:#67BA80;\n"
 "	color:black;\n"
 "}")
         self.verticalLayout_5 = QVBoxLayout(self.button)

@@ -62,7 +62,7 @@ class Ui_OrdersPage(object):
         self.BackButton = QPushButton(self.verticalFrame)
         self.BackButton.setObjectName(u"BackButton")
         self.BackButton.setStyleSheet(u"QPushButton{\n"
-"	background-color:green;\n"
+"	background-color:#67BA80;\n"
 "	color:black;\n"
 "}")
 
