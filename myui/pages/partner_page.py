@@ -28,7 +28,7 @@ class PartnerPage(QWidget, Ui_PartnersPage):
         # Подтверждение выхода
         reply = QMessageBox.warning(
             self,
-            "Подтверждение",
+            "Предупреждение",
             "Вы уверены, что хотите выйти?",
             QMessageBox.Yes | QMessageBox.No
         )
