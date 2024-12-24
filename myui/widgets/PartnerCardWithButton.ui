@@ -27,7 +27,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QFrame" name="">
+      <widget class="QFrame" name="frame">
        <property name="styleSheet">
         <string notr="true">.QFrame{
 	border: 2px solid black
@@ -93,7 +93,7 @@
           </item>
          </layout>
         </item>
-        <item>
+        <item alignment="Qt::AlignmentFlag::Qt::AlignmentFlag::AlignTop">
          <widget class="QPushButton" name="DiscountPercentage">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">

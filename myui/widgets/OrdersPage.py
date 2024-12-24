@@ -3,14 +3,20 @@
 ################################################################################
 ## Form generated from reading UI file 'OrdersPage.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect)
-from PySide6.QtWidgets import (QFrame, QLabel, QScrollArea,
-                               QSizePolicy, QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QPushButton,
+    QScrollArea, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_OrdersPage(object):
     def setupUi(self, OrdersPage):
@@ -41,7 +47,7 @@ class Ui_OrdersPage(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 581, 376))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 581, 345))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_3 = QVBoxLayout()
@@ -52,6 +58,15 @@ class Ui_OrdersPage(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout_2.addWidget(self.scrollArea)
+
+        self.BackButton = QPushButton(self.verticalFrame)
+        self.BackButton.setObjectName(u"BackButton")
+        self.BackButton.setStyleSheet(u"QPushButton{\n"
+"	background-color:green;\n"
+"	color:black;\n"
+"}")
+
+        self.verticalLayout_2.addWidget(self.BackButton)
 
 
         self.verticalLayout.addWidget(self.verticalFrame)
@@ -65,5 +80,6 @@ class Ui_OrdersPage(object):
     def retranslateUi(self, OrdersPage):
         OrdersPage.setWindowTitle(QCoreApplication.translate("OrdersPage", u"Form", None))
         self.Title.setText(QCoreApplication.translate("OrdersPage", u"<html><head/><body><p align=\"center\">Title</p></body></html>", None))
+        self.BackButton.setText(QCoreApplication.translate("OrdersPage", u"PushButton", None))
     # retranslateUi
 

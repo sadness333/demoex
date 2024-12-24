@@ -1,8 +1,8 @@
+from database.connection import session
+
 from sqlalchemy.exc import SQLAlchemyError
 
-from database.connection import session
 from database.models.OrderModel import OrderModel
-
 
 # Операции для работы с заказами
 class OrderCRUD:

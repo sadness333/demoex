@@ -8,11 +8,15 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
-                            QSize, Qt)
-from PySide6.QtWidgets import (QFrame, QHBoxLayout, QLabel,
-                               QPushButton, QVBoxLayout)
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_PartnerCard(object):
     def setupUi(self, PartnerCard):
@@ -27,7 +31,7 @@ class Ui_PartnerCard(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalFrame = QFrame(self.PartnerCardVBox)
         self.horizontalFrame.setObjectName(u"horizontalFrame")
-        self.horizontalFrame.setStyleSheet(u"border: 0.5px solid black;")
+        self.horizontalFrame.setStyleSheet(u"border: 2px solid black;")
         self.horizontalLayout_2 = QHBoxLayout(self.horizontalFrame)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.FirstColumn = QFrame(self.horizontalFrame)
@@ -59,15 +63,17 @@ class Ui_PartnerCard(object):
 
         self.verticalLayout.addWidget(self.Rank)
 
+
         self.horizontalLayout_2.addWidget(self.FirstColumn)
 
         self.DiscountPercentage = QLabel(self.horizontalFrame)
         self.DiscountPercentage.setObjectName(u"DiscountPercentage")
         self.DiscountPercentage.setStyleSheet(u"border: none;\n"
-                                              "padding: 0")
-        self.DiscountPercentage.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignTop)
+"padding: 0")
+        self.DiscountPercentage.setAlignment(Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignTop)
 
         self.horizontalLayout_2.addWidget(self.DiscountPercentage)
+
 
         self.horizontalLayout.addWidget(self.horizontalFrame)
 
@@ -87,10 +93,10 @@ class Ui_PartnerCard(object):
 
         self.horizontalLayout.addWidget(self.GetOrdersListButton)
 
+
         self.retranslateUi(PartnerCard)
 
         QMetaObject.connectSlotsByName(PartnerCard)
-
     # setupUi
 
     def retranslateUi(self, PartnerCard):
@@ -99,11 +105,9 @@ class Ui_PartnerCard(object):
         self.BossName.setText(QCoreApplication.translate("PartnerCard", u"BossName", None))
         self.PhoneNumber.setText(QCoreApplication.translate("PartnerCard", u"PhoneNumber", None))
         self.Rank.setText(QCoreApplication.translate("PartnerCard", u"Rank", None))
-        self.DiscountPercentage.setText(
-            QCoreApplication.translate("PartnerCard", u"<html><head/><body><p>DiscountPercentage</p></body></html>",
-                                       None))
-        self.EditButton.setText(
-            QCoreApplication.translate("PartnerCard", u"\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c\n"
-                                                      "\u043f\u0430\u0440\u0442\u043d\u0451\u0440\u0430", None))
+        self.DiscountPercentage.setText(QCoreApplication.translate("PartnerCard", u"<html><head/><body><p>DiscountPercentage</p></body></html>", None))
+        self.EditButton.setText(QCoreApplication.translate("PartnerCard", u"\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c\n"
+"\u043f\u0430\u0440\u0442\u043d\u0451\u0440\u0430", None))
         self.GetOrdersListButton.setText(QCoreApplication.translate("PartnerCard", u"PushButton1", None))
     # retranslateUi
+
