@@ -18,7 +18,7 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
         self.partner_id = partner_id
         self.session = session
 
-        self.PhoneNumber.setText("Номер телефона (xxx-xxx-xx-xx):")
+        self.PhoneNumber.setText("Номер телефона (xxx xxx xx xx):")
         self.BossName.setText("ФИО директора:")
 
         # Установка текста кнопки в зависимости от режима
