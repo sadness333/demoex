@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'PartnerCardWithButton.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -84,7 +84,7 @@ class Ui_PartnerCardWithButton(object):
         sizePolicy.setHeightForWidth(self.DiscountPercentage.sizePolicy().hasHeightForWidth())
         self.DiscountPercentage.setSizePolicy(sizePolicy)
 
-        self.horizontalLayout.addWidget(self.DiscountPercentage)
+        self.horizontalLayout.addWidget(self.DiscountPercentage, 0)
 
 
         self.horizontalLayout_2.addWidget(self.frame)
@@ -94,7 +94,7 @@ class Ui_PartnerCardWithButton(object):
         sizePolicy.setHeightForWidth(self.GetOrdersListButton.sizePolicy().hasHeightForWidth())
         self.GetOrdersListButton.setSizePolicy(sizePolicy)
         self.GetOrdersListButton.setMaximumSize(QSize(200, 16777215))
-        self.GetOrdersListButton.setStyleSheet(u"background-color: #67BA80;   border-radius: 10px")
+        self.GetOrdersListButton.setStyleSheet(u"background-color: green;   border-radius: 10px")
 
         self.horizontalLayout_2.addWidget(self.GetOrdersListButton)
 

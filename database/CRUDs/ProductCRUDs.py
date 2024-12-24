@@ -1,8 +1,8 @@
+from database.connection import session
+
 from sqlalchemy.exc import SQLAlchemyError
 
-from database.connection import session
 from database.models.ProductModel import ProductModel
-
 
 # Операции для работы с продуктами
 class ProductCRUD:

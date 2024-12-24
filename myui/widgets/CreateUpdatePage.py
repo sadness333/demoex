@@ -3,23 +3,29 @@
 ################################################################################
 ## Form generated from reading UI file 'CreateUpdatePage.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QSize)
-from PySide6.QtWidgets import (QFrame, QHBoxLayout, QLabel,
-                               QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-                               QVBoxLayout)
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
+    QVBoxLayout, QWidget)
 
 class Ui_CreateUpdatePage(object):
     def setupUi(self, CreateUpdatePage):
         if not CreateUpdatePage.objectName():
             CreateUpdatePage.setObjectName(u"CreateUpdatePage")
-        CreateUpdatePage.resize(500, 330)
+        CreateUpdatePage.resize(500, 362)
         CreateUpdatePage.setMinimumSize(QSize(0, 0))
-        CreateUpdatePage.setStyleSheet(u"background-color: #fff")
+        CreateUpdatePage.setStyleSheet(u"background-color: #fff; color: black;")
         self.verticalLayout_2 = QVBoxLayout(CreateUpdatePage)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.frame = QFrame(CreateUpdatePage)
@@ -187,10 +193,18 @@ class Ui_CreateUpdatePage(object):
         self.CreateUpdateButton = QPushButton(self.frame)
         self.CreateUpdateButton.setObjectName(u"CreateUpdateButton")
         self.CreateUpdateButton.setStyleSheet(u"border: 1px solid black;\n"
-"background-color: #67BA80\n"
+"background-color: green;\n"
 "")
 
         self.verticalLayout.addWidget(self.CreateUpdateButton)
+
+        self.pushButton = QPushButton(self.frame)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setStyleSheet(u"border: 1px solid black;\n"
+"background-color: green;\n"
+"")
+
+        self.verticalLayout.addWidget(self.pushButton)
 
 
         self.verticalLayout_2.addWidget(self.frame)
@@ -203,7 +217,7 @@ class Ui_CreateUpdatePage(object):
 
     def retranslateUi(self, CreateUpdatePage):
         CreateUpdatePage.setWindowTitle(QCoreApplication.translate("CreateUpdatePage", u"Form", None))
-        self.label.setText(QCoreApplication.translate("CreateUpdatePage", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">\u041e\u043a\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f/\u043e\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u0430\u0440\u0442\u043d\u0451\u0440\u0430</span></p></body></html>", None))
+        self.label.setText(QCoreApplication.translate("CreateUpdatePage", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">\u041e\u043a\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f/\u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u0430\u0440\u0442\u043d\u0451\u0440\u0430</span></p></body></html>", None))
         self.Type.setText(QCoreApplication.translate("CreateUpdatePage", u"\u0422\u0438\u043f \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438:", None))
         self.Name.setText(QCoreApplication.translate("CreateUpdatePage", u"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438:", None))
         self.Address.setText(QCoreApplication.translate("CreateUpdatePage", u"\u042e\u0440. \u0430\u0434\u0440\u0435\u0441:", None))
@@ -213,5 +227,6 @@ class Ui_CreateUpdatePage(object):
         self.Mail.setText(QCoreApplication.translate("CreateUpdatePage", u"\u042d\u043b. \u043f\u043e\u0447\u0442\u0430:", None))
         self.Rank.setText(QCoreApplication.translate("CreateUpdatePage", u"\u0420\u0435\u0439\u0442\u0438\u043d\u0433:", None))
         self.CreateUpdateButton.setText(QCoreApplication.translate("CreateUpdatePage", u"PushButton", None))
+        self.pushButton.setText(QCoreApplication.translate("CreateUpdatePage", u"BackButton", None))
     # retranslateUi
 

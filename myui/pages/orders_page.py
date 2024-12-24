@@ -1,13 +1,13 @@
-from PySide6.QtCore import QCoreApplication
 from PySide6.QtWidgets import QWidget
+
+# Импорт пользовательского интерфейса для карточки заказа
+from myui.widgets.OrderCard import Ui_OrderCard
+# Импорт пользовательского интерфейса для страницы заказов
+from myui.widgets.OrdersPage import Ui_OrdersPage
 
 # Импорт CRUD операций для работы с заказами и продуктами
 from database.CRUDs.OrderCRUDs import OrderCRUD
 from database.CRUDs.ProductCRUDs import ProductCRUD
-# Импорт пользовательского интерфейса для карточки заказа
-from ui.widgets.OrderCard import Ui_OrderCard
-# Импорт пользовательского интерфейса для страницы заказов
-from ui.widgets.OrdersPage import Ui_OrdersPage
 
 
 class OrderCardWidget(QWidget, Ui_OrderCard):
@@ -31,16 +31,19 @@ class OrderPageWidget(QWidget, Ui_OrdersPage):
     Класс виджета для отображения страницы с заказами партнёра.
     Загружает заказы из базы данных и добавляет их в макет страницы.
     """
-    def __init__(self, partner_id):
+
+    def __init__(self,controller, partner_id):
         super().__init__()
-        self.setupUi(self)  # Инициализация пользовательского интерфейса
+        self.controller = controller
+
+        self.setupUi(self)  #
 
         # Устанавливаем заголовок страницы
-        self.Title.setText(QCoreApplication.translate(
-            "OrderPage",
-            u"<html><head/><body><p align=\"center\">Заказы</p></body></html>",
-            None
-        ))
+        self.Title.setText("Заказы")
+
+        self.BackButton.setText("Назад")
+        from app import MainWindow
+        self.BackButton.clicked.connect(lambda: MainWindow.switch_to_partner_page(controller))
 
         # Получаем заказы для указанного партнёра и добавляем их на страницу
         for order in OrderCRUD.read_orders_by_company_id(partner_id):
