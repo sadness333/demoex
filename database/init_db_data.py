@@ -10,11 +10,11 @@ from database.models.ProductTypeModel import ProductTypeModel
 # база данных создается
 Base.metadata.create_all(engine)
 
-product_type_file = "./excel/Product_type_import.xlsx"
-products_file = "./excel/Products_import.xlsx"
-partners_file = "./excel/Partners_import.xlsx"
-sales_history_file = "./excel/Partner_products_import.xlsx"
-materials_file = "./excel/Material_type_import.xlsx"
+product_type_file = "../excel/Product_type_import.xlsx"
+products_file = "../excel/Products_import.xlsx"
+partners_file = "../excel/Partners_import.xlsx"
+sales_history_file = "../excel/Partner_products_import.xlsx"
+materials_file = "../excel/Material_type_import.xlsx"
 
 
 def import_product_types(session):
