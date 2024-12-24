@@ -26,7 +26,7 @@ class PartnerPage(QWidget, Ui_PartnersPage):
 
     def confirm_exit(self):
         # Подтверждение выхода
-        reply = QMessageBox.question(
+        reply = QMessageBox.warning(
             self,
             "Подтверждение",
             "Вы уверены, что хотите выйти?",
@@ -34,12 +34,6 @@ class PartnerPage(QWidget, Ui_PartnersPage):
         )
         if reply == QMessageBox.Yes:
             sys.exit(0)
-        else:
-            QMessageBox.information(
-                self,
-                "Продолжение работы",
-                "Вы продолжаете работу в приложении."
-            )
 
     def fill_scroll_area(self):
         # Добавление виджетов партнёров в область прокруткиыв
