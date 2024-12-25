@@ -1,6 +1,6 @@
-from database.connection import Base, engine, session
 from openpyxl import load_workbook
 
+from database.connection import Base, engine, session
 from database.models.MaterialModel import MaterialModel
 from database.models.OrderModel import OrderModel
 from database.models.PartnerModel import PartnerModel
@@ -28,6 +28,7 @@ def import_product_types(session):
     session.commit()
     print("Типы продукции добавлены.")
 
+
 def import_products(session):
     wb = load_workbook(products_file)
     sheet = wb.active
@@ -39,9 +40,10 @@ def import_products(session):
             name=name,
             min_cost=min_cost,
             fk_type=product_type.id
-            ))
+        ))
     session.commit()
     print("Продукты добавлены.")
+
 
 def import_partners(session):
     wb = load_workbook(partners_file)
@@ -61,6 +63,7 @@ def import_partners(session):
     session.commit()
     print("Партнёры добавлены.")
 
+
 def import_sales_history(session):
     wb = load_workbook(sales_history_file)
     sheet = wb.active
@@ -77,6 +80,7 @@ def import_sales_history(session):
     session.commit()
     print("История продаж добавлена.")
 
+
 def import_materials(session):
     wb = load_workbook(materials_file)
     sheet = wb.active
@@ -84,10 +88,11 @@ def import_materials(session):
         type, percentage_of_defective_material = row
         session.add(MaterialModel(
             type=type,
-            percentage_of_defective_material= percentage_of_defective_material
+            percentage_of_defective_material=percentage_of_defective_material
         ))
     session.commit()
     print("Материалы добавлены.")
+
 
 def main():
     try:
@@ -102,6 +107,7 @@ def main():
     finally:
         session.close()
         print("Импорт данных завершён.")
+
 
 if __name__ == "__main__":
     main()

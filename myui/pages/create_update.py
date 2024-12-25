@@ -1,15 +1,18 @@
 import re
 
-from PySide6.QtWidgets import QWidget, QMessageBox, QComboBox
 from PySide6.QtCore import Slot
+from PySide6.QtWidgets import QWidget, QMessageBox, QComboBox
+
 from database.connection import session
-from myui.widgets.CreateUpdatePage import Ui_CreateUpdatePage
 from database.models.PartnerModel import PartnerModel
+from myui.widgets.CreateUpdatePage import Ui_CreateUpdatePage
+
 
 class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
     """
     Класс для виджета страницы создания/обновления партнёра.
     """
+
     def __init__(self, controller, mode: str, partner_id=None):
         super().__init__(controller)
         self.setupUi(self)
@@ -146,4 +149,3 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
 
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", f"Произошла ошибка: {str(e)}")
-

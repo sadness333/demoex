@@ -1,8 +1,8 @@
-from database.connection import session
-
 from sqlalchemy.exc import SQLAlchemyError
 
+from database.connection import session
 from database.models.ProductTypeModel import ProductTypeModel
+
 
 # Операции для работы с типами продуктов
 class ProductTypeCRUD:
@@ -22,12 +22,12 @@ class ProductTypeCRUD:
             print(f"Ошибка чтения типов продуктов: {e}")
             return []
 
-
     @staticmethod
     def get_coefficient(product_type_id: int):
         try:
             # Получаем процент брака материала
-            material = session.query(ProductTypeModel.coefficient_of_product_type).filter(ProductTypeModel.id == product_type_id).scalar()
+            material = session.query(ProductTypeModel.coefficient_of_product_type).filter(
+                ProductTypeModel.id == product_type_id).scalar()
             return material if material is not None else 0.0
         except SQLAlchemyError as e:
             # Откатываем транзакцию и возвращаем 0.0

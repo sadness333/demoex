@@ -1,90 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>OrdersPage</class>
- <widget class="QWidget" name="OrdersPage">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>619</width>
-    <height>447</height>
-   </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">background-color: #fff;</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QFrame" name="verticalFrame">
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLabel" name="Title">
+    <class>OrdersPage</class>
+    <widget class="QWidget" name="OrdersPage">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>619</width>
+                <height>447</height>
+            </rect>
+        </property>
+        <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+            </sizepolicy>
+        </property>
+        <property name="windowTitle">
+            <string>Form</string>
+        </property>
         <property name="styleSheet">
-         <string notr="true">color: black; font-size: 20px</string>
+            <string notr="true">background-color: #fff;</string>
         </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Title&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>581</width>
-           <height>346</height>
-          </rect>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_3"/>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="BackButton">
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	background-color:green;
-	color:black;
-}</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+        <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+                <widget class="QFrame" name="verticalFrame">
+                    <property name="styleSheet">
+                        <string notr="true"/>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_2">
+                        <item>
+                            <widget class="QLabel" name="Title">
+                                <property name="styleSheet">
+                                    <string notr="true">color: black; font-size: 20px</string>
+                                </property>
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Title&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QScrollArea" name="scrollArea">
+                                <property name="widgetResizable">
+                                    <bool>true</bool>
+                                </property>
+                                <widget class="QWidget" name="scrollAreaWidgetContents">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>0</x>
+                                            <y>0</y>
+                                            <width>581</width>
+                                            <height>346</height>
+                                        </rect>
+                                    </property>
+                                    <property name="sizePolicy">
+                                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                                            <horstretch>0</horstretch>
+                                            <verstretch>0</verstretch>
+                                        </sizepolicy>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout_4">
+                                        <item>
+                                            <layout class="QVBoxLayout" name="verticalLayout_3"/>
+                                        </item>
+                                    </layout>
+                                </widget>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QPushButton" name="BackButton">
+                                <property name="styleSheet">
+                                    <string notr="true">QPushButton{
+                                        background-color:green;
+                                        color:black;
+                                        }
+                                    </string>
+                                </property>
+                                <property name="text">
+                                    <string>PushButton</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </item>
+        </layout>
     </widget>
-   </item>
-  </layout>
- </widget>
- <resources/>
- <connections/>
+    <resources/>
+    <connections/>
 </ui>

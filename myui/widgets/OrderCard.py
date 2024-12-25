@@ -1,5 +1,6 @@
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect, Qt)
-from PySide6.QtWidgets import (QFrame, QLabel, QVBoxLayout, QWidget)
+from PySide6.QtCore import (QCoreApplication, QMetaObject)
+from PySide6.QtWidgets import (QFrame, QLabel, QVBoxLayout)
+
 
 class Ui_OrderCard(object):
     def setupUi(self, OrderCard):

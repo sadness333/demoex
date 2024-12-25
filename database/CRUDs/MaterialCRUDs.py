@@ -1,8 +1,8 @@
-from database.connection import session
-
 from sqlalchemy.exc import SQLAlchemyError
 
+from database.connection import session
 from database.models.MaterialModel import MaterialModel
+
 
 # Операции для работы с материалами
 class MaterialCRUD:
@@ -24,5 +24,3 @@ class MaterialCRUD:
             session.rollback()
             print(f"Ошибка чтения процента брака материала: {e}")
             return 0.0
-
-

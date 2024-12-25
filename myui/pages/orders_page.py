@@ -1,13 +1,12 @@
 from PySide6.QtWidgets import QWidget
 
+# Импорт CRUD операций для работы с заказами и продуктами
+from database.CRUDs.OrderCRUDs import OrderCRUD
+from database.CRUDs.ProductCRUDs import ProductCRUD
 # Импорт пользовательского интерфейса для карточки заказа
 from myui.widgets.OrderCard import Ui_OrderCard
 # Импорт пользовательского интерфейса для страницы заказов
 from myui.widgets.OrdersPage import Ui_OrdersPage
-
-# Импорт CRUD операций для работы с заказами и продуктами
-from database.CRUDs.OrderCRUDs import OrderCRUD
-from database.CRUDs.ProductCRUDs import ProductCRUD
 
 
 class OrderCardWidget(QWidget, Ui_OrderCard):
@@ -15,6 +14,7 @@ class OrderCardWidget(QWidget, Ui_OrderCard):
     Класс виджета для отображения информации о заказе.
     Представляет карточку, содержащую данные о продукте, количестве и дате создания заказа.
     """
+
     def __init__(self, product_name, quantity_of_products, date_of_create):
         super().__init__()
         self.setupUi(self)  # Инициализация пользовательского интерфейса
@@ -32,7 +32,7 @@ class OrderPageWidget(QWidget, Ui_OrdersPage):
     Загружает заказы из базы данных и добавляет их в макет страницы.
     """
 
-    def __init__(self,controller, partner_id):
+    def __init__(self, controller, partner_id):
         super().__init__()
         self.controller = controller
 

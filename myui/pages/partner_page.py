@@ -1,15 +1,11 @@
-from PySide6.QtCore import QTranslator, QLibraryInfo
+import sys
+
 from PySide6.QtWidgets import QWidget, QMessageBox
-
-from myui.widgets.PartnerPageWidget import Ui_PartnersPage
-from myui.widgets.PartnerCardWithButton import Ui_PartnerCardWithButton
-
-from myui.pages.orders_page import OrderPageWidget
 
 from database.CRUDs.OrderCRUDs import *
 from database.CRUDs.PartnerCRUDs import *
-
-import sys
+from myui.widgets.PartnerCardWithButton import Ui_PartnerCardWithButton
+from myui.widgets.PartnerPageWidget import Ui_PartnersPage
 
 
 class PartnerPage(QWidget, Ui_PartnersPage):
@@ -24,8 +20,6 @@ class PartnerPage(QWidget, Ui_PartnersPage):
         self.pushButton.clicked.connect(lambda: controller.switch_to_create_page())
         self.pushButton_2.setText("Выйти")
         self.pushButton_2.clicked.connect(lambda: self.confirm_exit())
-
-
 
     def confirm_exit(self):
         # Подтверждение выхода
@@ -47,7 +41,7 @@ class PartnerPage(QWidget, Ui_PartnersPage):
     def fill_scroll_area(self):
         # Добавление виджетов партнёров в область прокруткиыв
         for partner_model in PartnerCRUD.read_partners():
-            custom_widget = PartnerCardWidget(self.controller,partner_model)
+            custom_widget = PartnerCardWidget(self.controller, partner_model)
             self.verticalLayout_2.addWidget(custom_widget)
 
 
@@ -60,7 +54,7 @@ class PartnerCardWidget(QWidget, Ui_PartnerCardWithButton):
 
         self.PartnerTypeAndName.setText(str(partner_model.type) + " | " + str(partner_model.company_name))
         self.BossName.setText(str(partner_model.boss_name))
-        self.PhoneNumber.setText("+7 "+ str(partner_model.phone_number))
+        self.PhoneNumber.setText("+7 " + str(partner_model.phone_number))
         self.Rank.setText("Рейтинг " + str(partner_model.rank))
 
         # Вычисление и отображение процента скидки
@@ -77,9 +71,7 @@ class PartnerCardWidget(QWidget, Ui_PartnerCardWithButton):
         self.DiscountPercentage.clicked.connect(lambda: MainWindow.switch_to_update_page(controller, partner_model.id))
 
 
-
 def calculation_of_discount_percentage(partner_id: int) -> int:
-
     discount_percentage = 0
     total_amount_of_order = 0
 
