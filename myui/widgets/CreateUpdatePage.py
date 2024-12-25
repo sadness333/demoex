@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+                               QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
+                               QVBoxLayout, QWidget, QComboBox)
 
 class Ui_CreateUpdatePage(object):
     def setupUi(self, CreateUpdatePage):
@@ -25,7 +25,7 @@ class Ui_CreateUpdatePage(object):
             CreateUpdatePage.setObjectName(u"CreateUpdatePage")
         CreateUpdatePage.resize(500, 362)
         CreateUpdatePage.setMinimumSize(QSize(0, 0))
-        CreateUpdatePage.setStyleSheet(u"background-color: #fff; color: black;")
+        CreateUpdatePage.setStyleSheet(u"background-color: #F4E8D3; color: black;")
         self.verticalLayout_2 = QVBoxLayout(CreateUpdatePage)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.frame = QFrame(CreateUpdatePage)
@@ -49,11 +49,14 @@ class Ui_CreateUpdatePage(object):
 
         self.horizontalLayout_12.addItem(self.verticalSpacer_12)
 
-        self.TypeInput = QLineEdit(self.frame)
+        self.TypeInput = QComboBox(self.frame)
+        self.TypeInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.TypeInput.setObjectName(u"TypeInput")
+        self.TypeInput.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        # Добавление опций в выпадающий список
+        self.TypeInput.addItems(["ЗАО", "ООО", "ИП", "ОАО", "ПАО"])
 
         self.horizontalLayout_12.addWidget(self.TypeInput)
-
 
         self.verticalLayout.addLayout(self.horizontalLayout_12)
 
@@ -69,6 +72,7 @@ class Ui_CreateUpdatePage(object):
         self.horizontalLayout_11.addItem(self.verticalSpacer_11)
 
         self.NameInput = QLineEdit(self.frame)
+        self.NameInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.NameInput.setObjectName(u"NameInput")
 
         self.horizontalLayout_11.addWidget(self.NameInput)
@@ -88,6 +92,7 @@ class Ui_CreateUpdatePage(object):
         self.horizontalLayout.addItem(self.verticalSpacer)
 
         self.AddressInput = QLineEdit(self.frame)
+        self.AddressInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.AddressInput.setObjectName(u"AddressInput")
 
         self.horizontalLayout.addWidget(self.AddressInput)
@@ -107,6 +112,7 @@ class Ui_CreateUpdatePage(object):
         self.horizontalLayout_9.addItem(self.verticalSpacer_9)
 
         self.INNInput = QLineEdit(self.frame)
+        self.INNInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.INNInput.setObjectName(u"INNInput")
 
         self.horizontalLayout_9.addWidget(self.INNInput)
@@ -126,6 +132,7 @@ class Ui_CreateUpdatePage(object):
         self.horizontalLayout_10.addItem(self.verticalSpacer_10)
 
         self.BossNameInput = QLineEdit(self.frame)
+        self.BossNameInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.BossNameInput.setObjectName(u"BossNameInput")
 
         self.horizontalLayout_10.addWidget(self.BossNameInput)
@@ -145,6 +152,7 @@ class Ui_CreateUpdatePage(object):
         self.horizontalLayout_15.addItem(self.verticalSpacer_15)
 
         self.PhoneNumberInput = QLineEdit(self.frame)
+        self.PhoneNumberInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.PhoneNumberInput.setObjectName(u"PhoneNumberInput")
 
         self.horizontalLayout_15.addWidget(self.PhoneNumberInput)
@@ -164,6 +172,7 @@ class Ui_CreateUpdatePage(object):
         self.horizontalLayout_14.addItem(self.verticalSpacer_14)
 
         self.MailInput = QLineEdit(self.frame)
+        self.MailInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.MailInput.setObjectName(u"MailInput")
 
         self.horizontalLayout_14.addWidget(self.MailInput)
@@ -183,6 +192,7 @@ class Ui_CreateUpdatePage(object):
         self.horizontalLayout_13.addItem(self.verticalSpacer_13)
 
         self.RankInput = QLineEdit(self.frame)
+        self.RankInput.setStyleSheet(u"background-color: #fff; color: black;")
         self.RankInput.setObjectName(u"RankInput")
 
         self.horizontalLayout_13.addWidget(self.RankInput)

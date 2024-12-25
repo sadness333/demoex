@@ -9,14 +9,15 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+                            QMetaObject, QObject, QPoint, QRect,
+                            QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+                           QFont, QFontDatabase, QGradient, QIcon,
+                           QImage, QKeySequence, QLinearGradient, QPainter,
+                           QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QPushButton,
-    QScrollArea, QSizePolicy, QVBoxLayout, QWidget)
+                               QScrollArea, QSizePolicy, QVBoxLayout, QWidget)
+
 
 class Ui_OrdersPage(object):
     def setupUi(self, OrdersPage):
@@ -62,24 +63,24 @@ class Ui_OrdersPage(object):
         self.BackButton = QPushButton(self.verticalFrame)
         self.BackButton.setObjectName(u"BackButton")
         self.BackButton.setStyleSheet(u"QPushButton{\n"
-"	background-color:#67BA80;\n"
-"	color:black;\n"
-"}")
+                                      "	background-color:#67BA80;\n"
+                                      "	color:black;\n"
+                                      "}")
 
         self.verticalLayout_2.addWidget(self.BackButton)
 
-
         self.verticalLayout.addWidget(self.verticalFrame)
-
 
         self.retranslateUi(OrdersPage)
 
         QMetaObject.connectSlotsByName(OrdersPage)
+
     # setupUi
 
     def retranslateUi(self, OrdersPage):
         OrdersPage.setWindowTitle(QCoreApplication.translate("OrdersPage", u"Form", None))
-        self.Title.setText(QCoreApplication.translate("OrdersPage", u"<html><head/><body><p align=\"center\">Title</p></body></html>", None))
+        self.Title.setText(
+            QCoreApplication.translate("OrdersPage", u"<html><head/><body><p align=\"center\">Title</p></body></html>",
+                                       None))
         self.BackButton.setText(QCoreApplication.translate("OrdersPage", u"PushButton", None))
     # retranslateUi
-

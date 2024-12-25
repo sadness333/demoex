@@ -1,3 +1,4 @@
+from PySide6.QtCore import QTranslator, QLibraryInfo
 from PySide6.QtWidgets import QWidget, QMessageBox
 
 from myui.widgets.PartnerPageWidget import Ui_PartnersPage
@@ -23,6 +24,8 @@ class PartnerPage(QWidget, Ui_PartnersPage):
         self.pushButton.clicked.connect(lambda: controller.switch_to_create_page())
         self.pushButton_2.setText("Выйти")
         self.pushButton_2.clicked.connect(lambda: self.confirm_exit())
+
+
 
     def confirm_exit(self):
         # Подтверждение выхода

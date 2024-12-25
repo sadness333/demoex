@@ -1,3 +1,5 @@
+import self
+from PySide6.QtCore import QTranslator, QLibraryInfo
 from PySide6.QtWidgets import QApplication, QMainWindow, QStackedWidget, QWidget
 from PySide6.QtGui import QIcon, QPixmap
 
@@ -77,6 +79,9 @@ if __name__ == "__main__":
     # Создаём приложение
     app = QApplication(sys.argv)
     # Создаём главное окно приложения
+    translator = QTranslator()
+    translator.load("qtbase_ru", QLibraryInfo.path(QLibraryInfo.TranslationsPath))
+    app.installTranslator(translator)
     window = MainWindow()
     # Устанавливаем иконку приложения
     window.setWindowIcon(QPixmap("myui/icons/Master_pol.ico"))

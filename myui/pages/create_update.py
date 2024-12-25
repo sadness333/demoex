@@ -1,6 +1,6 @@
 import re
 
-from PySide6.QtWidgets import QWidget, QMessageBox
+from PySide6.QtWidgets import QWidget, QMessageBox, QComboBox
 from PySide6.QtCore import Slot
 from database.connection import session
 from myui.widgets.CreateUpdatePage import Ui_CreateUpdatePage
@@ -42,12 +42,31 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
         if not self.partner_id:
             raise ValueError("partner_id должен быть указан в режиме 'update'.")
 
+        # Получение данных партнёра
         partner = self.session.query(PartnerModel).filter_by(id=self.partner_id).first()
         if not partner:
             raise ValueError(f"Партнёр с ID {self.partner_id} не найден.")
 
-        # Предзаполняем поля формы данными партнёра
-        self.TypeInput.setText(partner.type)
+        # Проверяем TypeInput
+        print("TypeInput:", self.TypeInput)
+        print("TypeInput type:", type(self.TypeInput))
+        if not isinstance(self.TypeInput, QComboBox):
+            raise TypeError("TypeInput должен быть экземпляром QComboBox.")
+
+        # Проверяем данные QComboBox
+        if self.TypeInput.count() == 0:
+            print("TypeInput пуст. Добавляем тестовые элементы...")
+            self.TypeInput.addItems(["ЗАО", "ООО", "ИП", "ОАО", "ПАО"])
+
+        # Установка текста в QComboBox
+        if self.TypeInput.findText(partner.type) != -1:
+            self.TypeInput.setCurrentText(partner.type)
+        else:
+            print(f"Значение '{partner.type}' не найдено в QComboBox. Добавляем его.")
+            self.TypeInput.addItem(partner.type)
+            self.TypeInput.setCurrentText(partner.type)
+
+        # Установка значений в остальные поля
         self.NameInput.setText(partner.company_name)
         self.AddressInput.setText(partner.address)
         self.INNInput.setText(partner.inn)
@@ -60,7 +79,7 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
     def on_submit(self):
         try:
             data = {
-                "type": self.TypeInput.text(),
+                "type": self.TypeInput.currentText(),  # Используем currentText() для QComboBox
                 "company_name": self.NameInput.text(),
                 "address": self.AddressInput.text(),
                 "inn": self.INNInput.text(),
@@ -70,12 +89,13 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
                 "rank": self.RankInput.text(),
             }
 
-
-            partner_type = self.TypeInput.text()
+            # Проверка типа компании
+            partner_type = self.TypeInput.currentText()  # Используем currentText() для QComboBox
             if not re.fullmatch(r"^[A-Za-zА-Яа-я]{3}$", partner_type):
                 QMessageBox.critical(self, "Ошибка", "Тип компании должен содержать ровно 3 буквы!")
                 return
 
+            # Проверка номера телефона
             phone_number = self.PhoneNumberInput.text()
             if not re.match(r"^\d{3} \d{3} \d{2} \d{2}$", phone_number):  # Проверка формата "444 222 33 11"
                 QMessageBox.critical(
@@ -85,27 +105,31 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
                 )
                 return
 
+            # Проверка ИНН
             inn = self.INNInput.text()
             if not re.match(r"^\d{10}$", inn):  # Проверка, что ИНН состоит ровно из 10 цифр
                 QMessageBox.critical(self, "Ошибка", "ИНН должен содержать ровно 10 цифр!")
                 return
 
+            # Проверка рейтинга
             rank = self.RankInput.text()
             if not rank.isdigit() or not (0 <= int(rank) <= 10):
                 QMessageBox.critical(self, "Ошибка", "Неверный формат рейтинга!")
                 return
 
+            # Проверка почты
             mail = self.MailInput.text()
             if mail and "@" not in mail:
                 QMessageBox.critical(self, "Ошибка", "Некорректный адрес электронной почты!")
                 return
 
+            # Проверка имени директора
             boss_name = self.BossNameInput.text()
             if any(char.isdigit() for char in boss_name):
                 QMessageBox.critical(self, "Ошибка", "Имя директора не может содержать цифры!")
                 return
 
-        # Выполняем логику создания или обновления
+            # Логика создания или обновления партнёра
             if self.mode == "create":
                 new_partner = PartnerModel(**data)
                 self.session.add(new_partner)
@@ -113,6 +137,8 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
                 QMessageBox.information(self, "Успех", "Партнёр успешно создан!")
             elif self.mode == "update":
                 partner = self.session.query(PartnerModel).filter_by(id=self.partner_id).first()
+                if not partner:
+                    raise ValueError(f"Партнёр с ID {self.partner_id} не найден.")
                 for key, value in data.items():
                     setattr(partner, key, value)
                 self.session.commit()
@@ -120,3 +146,4 @@ class CreateUpdatePageWidget(QWidget, Ui_CreateUpdatePage):
 
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", f"Произошла ошибка: {str(e)}")
+

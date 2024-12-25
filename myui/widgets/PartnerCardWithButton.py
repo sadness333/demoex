@@ -9,14 +9,15 @@
 ################################################################################
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+                            QMetaObject, QObject, QPoint, QRect,
+                            QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+                           QFont, QFontDatabase, QGradient, QIcon,
+                           QImage, QKeySequence, QLinearGradient, QPainter,
+                           QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QPushButton,
-    QSizePolicy, QVBoxLayout, QWidget)
+                               QSizePolicy, QVBoxLayout, QWidget)
+
 
 class Ui_PartnerCardWithButton(object):
     def setupUi(self, PartnerCardWithButton):
@@ -24,13 +25,13 @@ class Ui_PartnerCardWithButton(object):
             PartnerCardWithButton.setObjectName(u"PartnerCardWithButton")
         PartnerCardWithButton.resize(900, 180)
         PartnerCardWithButton.setStyleSheet(u"QWidget{\n"
-"	background-color: #fff;\n"
-"	color: #000;\n"
-"	font-size: 15px; \n"
-"	padding: 0px\n"
-"}\n"
-"\n"
-"")
+                                            "	background-color: #F4E8D3;\n"
+                                            "	color: #000;\n"
+                                            "	font-size: 15px; \n"
+                                            "	padding: 0px\n"
+                                            "}\n"
+                                            "\n"
+                                            "")
         self.verticalLayout_2 = QVBoxLayout(PartnerCardWithButton)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.horizontalLayout_2 = QHBoxLayout()
@@ -38,8 +39,8 @@ class Ui_PartnerCardWithButton(object):
         self.frame = QFrame(PartnerCardWithButton)
         self.frame.setObjectName(u"frame")
         self.frame.setStyleSheet(u".QFrame{\n"
-"	border: 2px solid black\n"
-"}")
+                                 "	border: 2px solid black\n"
+                                 "}")
         self.horizontalLayout = QHBoxLayout(self.frame)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.verticalLayout = QVBoxLayout()
@@ -76,7 +77,6 @@ class Ui_PartnerCardWithButton(object):
 
         self.verticalLayout.addWidget(self.Rank)
 
-
         self.horizontalLayout.addLayout(self.verticalLayout)
 
         self.DiscountPercentage = QPushButton(self.frame)
@@ -85,7 +85,6 @@ class Ui_PartnerCardWithButton(object):
         self.DiscountPercentage.setSizePolicy(sizePolicy)
 
         self.horizontalLayout.addWidget(self.DiscountPercentage, 0)
-
 
         self.horizontalLayout_2.addWidget(self.frame)
 
@@ -98,22 +97,22 @@ class Ui_PartnerCardWithButton(object):
 
         self.horizontalLayout_2.addWidget(self.GetOrdersListButton)
 
-
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
-
 
         self.retranslateUi(PartnerCardWithButton)
 
         QMetaObject.connectSlotsByName(PartnerCardWithButton)
+
     # setupUi
 
     def retranslateUi(self, PartnerCardWithButton):
         PartnerCardWithButton.setWindowTitle(QCoreApplication.translate("PartnerCardWithButton", u"Form", None))
-        self.PartnerTypeAndName.setText(QCoreApplication.translate("PartnerCardWithButton", u"PartnerTypeAndName", None))
+        self.PartnerTypeAndName.setText(
+            QCoreApplication.translate("PartnerCardWithButton", u"PartnerTypeAndName", None))
         self.BossName.setText(QCoreApplication.translate("PartnerCardWithButton", u"BossName", None))
         self.PhoneNumber.setText(QCoreApplication.translate("PartnerCardWithButton", u"PhoneNumber", None))
         self.Rank.setText(QCoreApplication.translate("PartnerCardWithButton", u"Rank", None))
-        self.DiscountPercentage.setText(QCoreApplication.translate("PartnerCardWithButton", u"DiscountPercentage", None))
+        self.DiscountPercentage.setText(
+            QCoreApplication.translate("PartnerCardWithButton", u"DiscountPercentage", None))
         self.GetOrdersListButton.setText(QCoreApplication.translate("PartnerCardWithButton", u"PushButton", None))
     # retranslateUi
-
